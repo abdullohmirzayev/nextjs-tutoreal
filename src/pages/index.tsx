@@ -1,14 +1,11 @@
 import { Button } from "@mui/material";
-import Head from "next/head";
+import Layout from "src/layout/layout";
 
 const IndexPage = () => {
   return (
-    <>
-      <Head>
-        <title>Index Page</title>
-      </Head>
+    <Layout>
       <Button>Click</Button>
-    </>
+    </Layout>
   );
 };
 
