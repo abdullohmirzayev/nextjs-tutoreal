@@ -44,7 +44,7 @@ const Navbar = ({ window }: Props) => {
       >
         <Box sx={{ my: 2, display: "flex", alignItems: "center", gap: "2px" }}>
           <AppleIcon />
-          <Typography variant="h6">INote</Typography>
+          <Typography variant="h6">iNote</Typography>
         </Box>
         <CloseIcon />
       </Box>
@@ -63,7 +63,7 @@ const Navbar = ({ window }: Props) => {
 
   return (
     <Box height={"10vh"} sx={{ display: "flex" }}>
-      <AppBar component="nav">
+      <AppBar sx={{ height: '10vh', display: 'flex', justifyContent: 'center', backgroundColor: '#141414'}} component="nav">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -80,7 +80,7 @@ const Navbar = ({ window }: Props) => {
               variant="h6"
               component="div"
             >
-              INote
+              iNote
             </Typography>
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
