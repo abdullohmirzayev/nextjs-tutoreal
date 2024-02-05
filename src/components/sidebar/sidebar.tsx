@@ -46,7 +46,7 @@ const Sidebar = () => {
           </Box>
         </Box>
       </Box>
-    </Box>;
+    </Box>
   </>
 };
 
