@@ -3,15 +3,15 @@ import Image from "next/image";
 import { format } from 'date-fns'
 
 const Content = () => {
-  return <Box sx={{ width: "70%" }}>
+  return <Box sx={{ width: { xs: '100%', md: '70%' } }}>
     {data.map(item => (
       <Box key={item.image} sx={{ backgroundColor: 'rgba(0, 0, 0, .5)', padding: '20px', marginTop: '20px', borderRadius: '8px', boxShadow: '0px 8px 16px rgba(255, 255, 255, .1)' }}>
-        <Box sx={{ position: 'relative', width: '100%', height: '50vh' }}>
+        <Box sx={{ position: 'relative', width: '100%', height: { xs: '30vh', md: '50vh' } }}>
           <Image src={item.image} alt={item.title} fill style={{ objectFit: 'cover', borderRadius: '10px' }} />
         </Box>
         <Typography variant="h4" marginTop={'30px'}>{item.title}</Typography>
         <Typography variant="body1" color={'gray'}>{item.exerpt}</Typography>
-        <Divider sx={{marginTop: '30px'}} />
+        <Divider sx={{ marginTop: '30px' }} />
         <Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
           <Avatar alt={item.author.name} src={item.author.image} />
           <Box>
