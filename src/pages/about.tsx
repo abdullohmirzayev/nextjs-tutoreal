@@ -1,14 +1,13 @@
-import Head  from "next/head";
+import Head from 'next/head';
 
 const AboutPage = () => {
-  return (
-    <>
-      <Head>
-        <title>About Page</title>
-      </Head>
-      <div>AboutPage</div>
-    </>
-  );
+	return (
+		<>
+			<Head>
+				<title>Sammi about</title>
+			</Head>
+			<div>AboutPage</div>
+		</>
+	);
 };
-
 export default AboutPage;

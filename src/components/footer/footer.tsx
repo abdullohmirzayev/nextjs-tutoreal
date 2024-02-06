@@ -1,21 +1,29 @@
-import Telegram from "@mui/icons-material/Telegram"
-import Instagram from "@mui/icons-material/Instagram"
-import Youtube from "@mui/icons-material/YouTube"
-import { Box, Typography } from "@mui/material"
-import { format } from 'date-fns'
+import { Box, Button, ButtonGroup, Typography } from '@mui/material';
+import { format } from 'date-fns';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footer = () => {
-  return (
-    <Box padding={'20px'} sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', backgroundColor: '#141414', color: 'white' }}>
-      <Typography>© {format(new Date(), 'yyyy')} INote. All Right Reserved.</Typography>
+	return (
+		<Box
+			padding={'20px'}
+			sx={{
+				display: 'flex',
+				justifyContent: 'space-between',
+				alignItems: 'center',
+				backgroundColor: '#141414',
+				color: 'white',
+			}}
+		>
+			<Typography>© {format(new Date(), 'yyyy')} Sammi. All Right Reserved.</Typography>
+			<Box sx={{ display: 'flex', gap: '15px' }}>
+				<TelegramIcon sx={{ cursor: 'pointer' }} />
+				<InstagramIcon sx={{ cursor: 'pointer' }} />
+				<YouTubeIcon sx={{ cursor: 'pointer' }} />
+			</Box>
+		</Box>
+	);
+};
 
-      <Box sx={{ display: 'flex', gap: '15px', cursor: 'pointer' }}>
-        <Telegram />
-        <Instagram />
-        <Youtube />
-      </Box>
-    </Box>
-  )
-}
-
-export default Footer
+export default Footer;
