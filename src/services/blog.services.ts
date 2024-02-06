@@ -1,4 +1,5 @@
 import { request, gql } from "graphql-request";
+import { BlogsType } from "src/inertfaces/blogs-inertfaces";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT as string;
 
@@ -28,7 +29,7 @@ export const BlogesService = {
       }
     `;
 
-    const result = await request(graphqlAPI, query);
-    return result;
+    const result = await request<{ blogs: BlogsType[] }>(graphqlAPI, query);
+    return result.blogs;
   },
 };
