@@ -27,6 +27,9 @@ export const BlogesService = {
             label
             slug
           }
+          description {
+            text
+          }
         }
       }
     `;
@@ -45,6 +48,9 @@ export const BlogesService = {
           createdAt
           image {
             url
+          }
+          description {
+            text
           }
           auther {
             name
