@@ -17,6 +17,7 @@ import { useState } from 'react';
 import { navItems } from 'src/config/constants';
 import CloseIcon from '@mui/icons-material/Close';
 import AppleIcon from '@mui/icons-material/Apple';
+import { useRouter } from 'next/router';
 
 interface Props {
 	window?: () => Window;
@@ -24,6 +25,7 @@ interface Props {
 
 const Navbar = ({ window }: Props) => {
 	const [mobileOpen, setMobileOpen] = useState(false);
+	const router = useRouter()
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(prevState => !prevState);
@@ -34,9 +36,11 @@ const Navbar = ({ window }: Props) => {
 	const drawer = (
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingX: '20px' }}>
-				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}>
-					<AppleIcon />
-					<Typography variant='h6'>iNote</Typography>
+				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}  >
+					<Box sx={{ cursor: 'pointer', display: 'flex', flexDirection: 'row' }} onClick={() => router.push(`/`)}>
+						<AppleIcon />
+						<Typography variant='h6'>iNote</Typography>
+					</Box>
 				</Box>
 				<CloseIcon />
 			</Box>
@@ -62,15 +66,17 @@ const Navbar = ({ window }: Props) => {
 						aria-label='open drawer'
 						edge='start'
 						onClick={handleDrawerToggle}
-						sx={{ marginRight: '2px',  marginTop: '15px',  display: { sm: 'none' } }}
+						sx={{ marginRight: '2px', marginTop: '15px', display: { sm: 'none' } }}
 					>
 						<MenuIcon />
 					</IconButton>
 					<Box sx={{ my: 4, alignItems: 'center', gap: '5px', flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
-						<AppleIcon />
-						<Typography variant='h6' component='div'>
-							iNote
-						</Typography>
+						<Box sx={{ cursor: 'pointer', display: 'flex', flexDirection: 'row' }} onClick={() => router.push(`/`)}>
+							<AppleIcon />
+							<Typography variant='h6' component='div'>
+								iNote
+							</Typography>
+						</Box>
 					</Box>
 
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>

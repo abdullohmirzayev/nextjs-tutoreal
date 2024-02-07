@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Divider, Typography } from "@mui/material";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 import { Sidebar } from "src/components";
@@ -40,15 +40,17 @@ const DetailedBlogsPage = ({
             <Image src={blog?.image?.url} alt={blog?.title} fill style={{ objectFit: 'cover', borderRadius: '10px' }} />
           </Box>
           <Box display={'flex'} rowGap={'10px'} flexDirection={'column'}>
-            <Typography variant="h3" marginTop={'20px'}>{blog?.title}</Typography>
-            <Typography color={'gray'}>{blog.excerpt}</Typography>
-            <Box sx={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+            <Box sx={{ display: 'flex', gap: '10px', marginTop: '30px' }}>
               <Avatar alt={blog?.auther?.name} src={blog?.auther?.avatar?.url} />
               <Box>
                 <Typography>{blog?.auther?.name}</Typography>
                 <Box color={'gray'}>{format(new Date(blog?.createdAt), 'dd MMM, yyyy')} &#x2022; {calculateEstimatedTimeToRead(blog?.description?.text)}min read</Box>
               </Box>
             </Box>
+            <Typography variant="h3">{blog?.title}</Typography>
+            <Typography color={'gray'}>{blog.excerpt}</Typography>
+            <Divider />
+            <div style={{ opacity: '.8' }} dangerouslySetInnerHTML={{ __html: blog.description.html }} />
           </Box>
         </Box>
         <Sidebar latestBlogs={latestBlogs} categories={categories} />

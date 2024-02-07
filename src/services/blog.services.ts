@@ -104,6 +104,7 @@ export const BlogesService = {
             slug
           }
           description {
+            html
             text
           }
         }
