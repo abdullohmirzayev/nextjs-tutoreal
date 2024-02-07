@@ -16,7 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { navItems } from 'src/config/constants';
 import CloseIcon from '@mui/icons-material/Close';
-import AdjustIcon from '@mui/icons-material/Adjust';
+import AppleIcon from '@mui/icons-material/Apple';
 
 interface Props {
 	window?: () => Window;
@@ -35,8 +35,8 @@ const Navbar = ({ window }: Props) => {
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingX: '20px' }}>
 				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}>
-					<AdjustIcon />
-					<Typography variant='h6'>Sammi</Typography>
+					<AppleIcon />
+					<Typography variant='h6'>iNote</Typography>
 				</Box>
 				<CloseIcon />
 			</Box>
@@ -62,20 +62,20 @@ const Navbar = ({ window }: Props) => {
 						aria-label='open drawer'
 						edge='start'
 						onClick={handleDrawerToggle}
-						sx={{ mr: 2, display: { sm: 'none' } }}
+						sx={{ marginRight: '2px',  marginTop: '15px',  display: { sm: 'none' } }}
 					>
 						<MenuIcon />
 					</IconButton>
-					<Box sx={{ my: 2, alignItems: 'center', gap: '5px', flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
-						<AdjustIcon />
+					<Box sx={{ my: 4, alignItems: 'center', gap: '5px', flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+						<AppleIcon />
 						<Typography variant='h6' component='div'>
-							Sammi
+							iNote
 						</Typography>
 					</Box>
 
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navItems.map(item => (
-							<Button key={item.route} sx={{ color: '#fff' }}>
+							<Button key={item?.route} sx={{ color: '#fff' }}>
 								{item.label}
 							</Button>
 						))}
@@ -93,7 +93,7 @@ const Navbar = ({ window }: Props) => {
 					}}
 					sx={{
 						display: { xs: 'block', sm: 'none' },
-						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: `100%` },
+						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: `100%` }
 					}}
 				>
 					{drawer}
