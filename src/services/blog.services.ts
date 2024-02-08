@@ -111,9 +111,42 @@ export const BlogesService = {
       }
     `;
 
-    const result = await request<{ blog: BlogsType }>(graphqlAPI, query, {
+    const result = await request<{ blog: BlogsType[] }>(graphqlAPI, query, {
       slug,
     });
     return result.blog;
+  },
+
+  async getDetaieldCategoriesBlog(slug: string) {
+    const query = gql`
+      query getCategoriesBlog($slug: String!) {
+        blogs(where: { category: { slug: $slug } }) {
+          excerpt
+          id
+          slug
+          title
+          createdAt
+          image {
+            url
+          }
+          auther {
+            name
+            avatar {
+              url
+            }
+          }
+          category {
+            label
+            slug
+          }
+          description {
+            html
+            text
+          }
+        }
+      }
+    `;
+    const result = await request<{ blogs: BlogsType[] }>(graphqlAPI, query, {slug,});
+    return result.blogs;
   },
 };
