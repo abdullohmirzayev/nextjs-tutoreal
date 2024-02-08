@@ -1,5 +1,5 @@
 import { BlogsType } from 'src/interfaces/blogs.interface';
 
-export interface HeroProps {
+export interface ContentProps {
 	blogs: BlogsType[];
 }

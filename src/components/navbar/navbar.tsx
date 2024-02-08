@@ -16,8 +16,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { navItems } from 'src/config/constants';
 import CloseIcon from '@mui/icons-material/Close';
-import AppleIcon from '@mui/icons-material/Apple';
+import AdjustIcon from '@mui/icons-material/Adjust';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 interface Props {
 	window?: () => Window;
@@ -25,8 +26,7 @@ interface Props {
 
 const Navbar = ({ window }: Props) => {
 	const [mobileOpen, setMobileOpen] = useState(false);
-
-	const router = useRouter()
+	const router = useRouter();
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(prevState => !prevState);
@@ -37,11 +37,11 @@ const Navbar = ({ window }: Props) => {
 	const drawer = (
 		<Box sx={{ textAlign: 'center' }}>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingX: '20px' }}>
-				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}  >
-					<Box sx={{ cursor: 'pointer', display: 'flex', flexDirection: 'row' }} onClick={() => router.push(`/`)}>
-						<AppleIcon />
-						<Typography variant='h6'>iNote</Typography>
-					</Box>
+				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}>
+					<Image src={'/favicon.svg'} alt={'logo'} width={50} height={50} />
+					<Typography paddingTop={'7px'} variant='h4' fontFamily={'fantasy'} component='div'>
+						iNote
+					</Typography>
 				</Box>
 				<CloseIcon onClick={handleDrawerToggle} sx={{ cursor: 'pointer' }} />
 			</Box>
@@ -59,30 +59,31 @@ const Navbar = ({ window }: Props) => {
 	);
 
 	return (
-		<Box sx={{ display: 'flex', height: '9vh' }}>
-			<AppBar sx={{ height: '9vh', backgroundColor: '#141414', }} component='nav'>
+		<Box height={'9vh'} sx={{ display: 'flex' }}>
+			<AppBar sx={{ backgroundColor: '#141414', height: '9vh' }} component='nav'>
 				<Toolbar>
 					<IconButton
 						color='inherit'
 						aria-label='open drawer'
 						edge='start'
 						onClick={handleDrawerToggle}
-						sx={{ marginRight: '2px', marginTop: '15px', display: { sm: 'none' } }}
+						sx={{ mr: 2, display: { sm: 'none' } }}
 					>
 						<MenuIcon />
 					</IconButton>
-					<Box sx={{ my: 4, alignItems: 'center', gap: '5px', flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
-						<Box sx={{ cursor: 'pointer', display: 'flex', flexDirection: 'row' }} onClick={() => router.push(`/`)}>
-							<AppleIcon />
-							<Typography variant='h6' component='div'>
-								iNote
-							</Typography>
-						</Box>
+					<Box
+						onClick={() => router.push('/')}
+						sx={{ my: 2, alignItems: 'center', gap: '5px', flexGrow: 1, display: 'flex', cursor: 'pointer' }}
+					>
+						<Image src={'/favicon.svg'} alt={'logo'} width={50} height={50} />
+						<Typography paddingTop={'7px'} variant='h4' fontFamily={'fantasy'} component='div'>
+							iNote
+						</Typography>
 					</Box>
 
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navItems.map(item => (
-							<Button onClick={() => router.push(item.route)} key={item?.route} sx={{ color: '#fff' }}>
+							<Button onClick={() => router.push(item.route)} key={item.route} sx={{ color: '#fff' }}>
 								{item.label}
 							</Button>
 						))}
@@ -100,7 +101,7 @@ const Navbar = ({ window }: Props) => {
 					}}
 					sx={{
 						display: { xs: 'block', sm: 'none' },
-						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: `100%` }
+						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: `100%` },
 					}}
 				>
 					{drawer}

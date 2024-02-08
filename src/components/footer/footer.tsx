@@ -14,8 +14,8 @@ const Footer = () => {
 				alignItems: 'center',
 				backgroundColor: '#141414',
 				color: 'white',
-				borderTop: '1px solid rgba(255, 255, 255, .5)'
 			}}
+			borderTop={'1px solid rgba(255, 255, 255, .5)'}
 		>
 			<Typography>© {format(new Date(), 'yyyy')} iNote. All Right Reserved.</Typography>
 			<Box sx={{ display: 'flex', gap: '15px' }}>
