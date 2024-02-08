@@ -40,7 +40,7 @@ const Navbar = ({ window }: Props) => {
 				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}>
 					<Image src={'/favicon.svg'} alt={'logo'} width={50} height={50} />
 					<Typography paddingTop={'7px'} variant='h4' fontFamily={'fantasy'} component='div'>
-						iNote
+						Sammi
 					</Typography>
 				</Box>
 				<CloseIcon onClick={handleDrawerToggle} sx={{ cursor: 'pointer' }} />
@@ -77,7 +77,7 @@ const Navbar = ({ window }: Props) => {
 					>
 						<Image src={'/favicon.svg'} alt={'logo'} width={50} height={50} />
 						<Typography paddingTop={'7px'} variant='h4' fontFamily={'fantasy'} component='div'>
-							iNote
+							Sammi
 						</Typography>
 					</Box>
 

@@ -17,7 +17,7 @@ const Footer = () => {
 			}}
 			borderTop={'1px solid rgba(255, 255, 255, .5)'}
 		>
-			<Typography>© {format(new Date(), 'yyyy')} iNote. All Right Reserved.</Typography>
+			<Typography>© {format(new Date(), 'yyyy')} Sammi. All Right Reserved.</Typography>
 			<Box sx={{ display: 'flex', gap: '15px' }}>
 				<TelegramIcon sx={{ cursor: 'pointer' }} />
 				<InstagramIcon sx={{ cursor: 'pointer' }} />

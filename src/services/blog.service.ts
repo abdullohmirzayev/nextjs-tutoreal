@@ -33,6 +33,7 @@ export const BlogsService = {
 				}
 			}
 		`;
+
 		const result = await request<{ blogs: BlogsType[] }>(graphqlAPI, query);
 		return result.blogs;
 	},
