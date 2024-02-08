@@ -1,6 +1,5 @@
 import 'src/styles/globals.css';
-import 'nprogress/nprogress.css';
-
+import 'nprogress/nprogress.css'
 import type { AppProps } from 'next/app';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from 'src/helpers/create-emotion-cashe';
@@ -19,7 +18,7 @@ export interface MyAppProps extends AppProps {
 }
 
 function MyApp(props: MyAppProps) {
-	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+	const { Component, emotionCache = clientSideEmotionCache, pageProps, router } = props;
 
 	useEffect(() => {
 		const handleRouteStart = () => NProgress.start();
@@ -34,7 +33,7 @@ function MyApp(props: MyAppProps) {
 			Router.events.off('routeChangeComplete', handleRouteDone);
 			Router.events.off('routeChangeError', handleRouteDone);
 		};
-	}, []);
+	}, [])
 
 	return (
 		<CacheProvider value={emotionCache}>
