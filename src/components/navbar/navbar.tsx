@@ -35,7 +35,7 @@ const Navbar = ({ window }: Props) => {
 	const container = window !== undefined ? () => window().document.body : undefined;
 
 	const drawer = (
-		<Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+		<Box sx={{ textAlign: 'center' }}>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingX: '20px' }}>
 				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}  >
 					<Box sx={{ cursor: 'pointer', display: 'flex', flexDirection: 'row' }} onClick={() => router.push(`/`)}>
@@ -43,13 +43,13 @@ const Navbar = ({ window }: Props) => {
 						<Typography variant='h6'>iNote</Typography>
 					</Box>
 				</Box>
-				<CloseIcon />
+				<CloseIcon onClick={handleDrawerToggle} sx={{ cursor: 'pointer' }} />
 			</Box>
 			<Divider />
 			<List>
 				{navItems.map(item => (
 					<ListItem key={item.route} disablePadding>
-						<ListItemButton sx={{ textAlign: 'center' }}>
+						<ListItemButton onClick={() => router.push(item.route)} sx={{ textAlign: 'center' }}>
 							<ListItemText primary={item.label} />
 						</ListItemButton>
 					</ListItem>
@@ -59,8 +59,8 @@ const Navbar = ({ window }: Props) => {
 	);
 
 	return (
-		<Box height={'10vh'} sx={{ display: 'flex' }}>
-			<AppBar sx={{ height: '10vh', backgroundColor: '#141414' }} component='nav'>
+		<Box sx={{ display: 'flex', height: '9vh' }}>
+			<AppBar sx={{ height: '9vh', backgroundColor: '#141414', }} component='nav'>
 				<Toolbar>
 					<IconButton
 						color='inherit'
