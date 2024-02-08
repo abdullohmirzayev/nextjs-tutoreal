@@ -25,6 +25,7 @@ interface Props {
 
 const Navbar = ({ window }: Props) => {
 	const [mobileOpen, setMobileOpen] = useState(false);
+
 	const router = useRouter()
 
 	const handleDrawerToggle = () => {
@@ -81,7 +82,7 @@ const Navbar = ({ window }: Props) => {
 
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navItems.map(item => (
-							<Button key={item?.route} sx={{ color: '#fff' }}>
+							<Button onClick={() => router.push(item.route)} key={item?.route} sx={{ color: '#fff' }}>
 								{item.label}
 							</Button>
 						))}
